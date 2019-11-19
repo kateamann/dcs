@@ -9,18 +9,38 @@
 }
 
 .entry-content {
+
+	p.standout {
+		background-color: $brand-lighter-blue;
+		padding: 20px;
+		margin: 30px 0;
+		font-weight: 600;
+	}
+
 	ol,
 	ul {
 		margin-bottom: 20px;
-		padding-left: 40px;
+		padding-left: 20px;
+	}
+
+	ul {
+	  	list-style: none;
+	}
+
+	ul > li::before {
+		content: "\f45c";
+		color: $brand-blue;
+		font-family: "Font Awesome 5 Free";
+	    font-weight: 900;
+	    display: inline-block;
+	    padding-right: 8px;
+	    padding-bottom: 2px;
+	    vertical-align: middle;
+	    font-size: .5em;
 	}
 
 	ol > li {
 		list-style-type: decimal;
-	}
-
-	ul > li {
-		list-style-type: disc;
 	}
 
 	ol ul > li,
@@ -33,14 +53,155 @@
 		margin-bottom: 0;
 	}
 
+	ul.two-column-list {
+
+        @media only screen and (min-width: $small-screen) {
+        	-webkit-columns: 2;
+	   		-moz-columns: 2;
+	        columns: 2;
+        }
+	}
+
+	ul.inline-list {
+		text-align: center;
+		padding-left: 0;
+
+		> li {
+			display: inline;
+			margin-right: 8px;
+		}
+
+		> li:first-child::before {
+			display: none;
+		}
+	}
+
+	ul.course-dates {
+		padding-left: 0;
+		line-height: 2;
+		font-size: 14px;
+	}
+
+	ul.course-dates > li::before {
+		content: "";
+	    display: none;
+	}
+
+	ul.course-dates strong {
+	    color: $dark-grey;
+	}
+
 	code {
-		background-color: $lighter-grey;
+		background-color: $light-grey;
+	}
+
+	.flowchart div p {
+		border: 2px solid $brand-blue;
+		padding: 20px;
+	}
+
+	.flowchart div p:before {
+		content: "\f309";
+		color: $brand-blue;
+		font-family: "Font Awesome 5 Free";
+	    font-weight: 900;
+	    display: block;
+	    font-size: 60px;
+	    text-align: center;
+	    margin-top: -65px;
+	    line-height: 1.25;
+	}
+
+	.flowchart div p:first-of-type:before {
+	    display: none;
 	}
 }
 
 .content .sticky {
-	background-color: $lighter-grey;
+	background-color: $light-grey;
 	padding: 30px;
+}
+
+
+.single-partners {
+	.entry-content ul {
+        @media only screen and (min-width: $small-screen) {
+        	-webkit-columns: 2;
+	   		-moz-columns: 2;
+	        columns: 2;
+        }
+	}
+
+	.partner-logo {
+		width: 100%;
+		margin-bottom: 30px;
+
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.partner-contact-image {
+		width: 200px;
+		height: auto;
+		margin: 0 0 10px;
+
+		@media only screen and (min-width: $small-screen) {
+			float: right;
+			margin: 0 0 10px 20px;
+		}
+	}
+}
+
+
+.author-bio {
+	margin: 40px 0;
+	border-top: 2px solid $brand-blue;
+	padding-top: 20px;
+
+	.bio-image {
+		width: 200px;
+		min-width: 200px;
+		margin-bottom: 20px;
+		margin-right: 20px;
+	}
+
+	h3 {
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	ul.inline-list {
+		text-align: left;
+	}
+
+	@media only screen and (min-width: $smaller-screen) {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.team-bios {
+	.team-member {
+		margin: 40px 0 60px;
+	}
+
+	.team-header {
+
+		@media only screen and (min-width: $smaller-screen) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	.bio-image {
+		width: 200px;
+		min-width: 200px;
+		margin-bottom: 20px;
+		margin-right: 20px;
+	}
+
 }
 
 /* Entry Meta
@@ -86,7 +247,7 @@ p.entry-meta {
 		display: inline;
 
 		a {
-			background-color: $lighter-grey;
+			background-color: $light-grey;
 			color: #333;
 			cursor: pointer;
 			display: inline-block;

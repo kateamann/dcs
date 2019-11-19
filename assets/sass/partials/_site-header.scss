@@ -4,12 +4,18 @@
 .site-header {
 	background-color: $white;
 	// box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-	padding: 0 30px;
+	padding: 0 15px;
 
 	@media only screen and (min-width: $small-screen) {
-		position: fixed;
-		width: 100%;
-		z-index: 9999;
+		// position: fixed;
+		// width: 100%;
+		// z-index: 9999;
+		padding: 0 30px;
+	}
+
+	.wrap {
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 }
 
@@ -17,15 +23,20 @@
 --------------------------------------------- */
 
 .title-area {
-	float: left;
+	margin: 0 auto;
 	padding-bottom: 25px;
 	padding-top: 25px;
+	display: inline-block;
+
+	@media only screen and (min-width: $small-screen) {
+		float: left;
+	}
 }
 
 .wp-custom-logo .title-area {
-	max-width: 350px;
-	padding-bottom: 5px;
-	padding-top: 5px;
+	max-width: 200px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 	width: 100%;
 }
 

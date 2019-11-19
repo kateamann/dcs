@@ -12,9 +12,8 @@
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header', 'genesis_do_nav', 11 );
 
-// Secondary Nav in Footer.
+// Remove secondary nav from header
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_footer', 'genesis_do_subnav', 10 );
 
 add_filter( 'wp_nav_menu_args', 'dcs_secondary_menu_args' );
 /**
@@ -36,43 +35,6 @@ function dcs_secondary_menu_args( $args ) {
 
 }
 
-// Removes output of primary navigation right extras.
-// remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
-// remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
-
-
-/**
- * Mobile Menu Toggle
- *
- */
-function dcs_mobile_menu_toggle() {
-
-	if( ! has_nav_menu( 'mobile' ) )
-		return;
-
-    echo '<div class="nav-mobile">';
-	echo '<a class="mobile-menu-toggle" href="#">' . ea_icon( 'menu' ) . '</a>';
-	echo '</div>';
-}
-// add_action( 'genesis_header', 'dcs_mobile_menu_toggle', 12 );
-
-/**
- * Mobile Menu
- *
- */
-function dcs_mobile_menu() {
-  if( has_nav_menu( 'mobile' ) ) {
-    echo '<div id="sidr-mobile-menu" class="sidr right">';
-      echo '<a class="sidr-menu-close" href="#">' . ea_icon( 'close' ) . '</a>';
-      wp_nav_menu( array( 'theme_location' => 'mobile' ) );
-    echo '</div>';
-  }
-}
-// add_action( 'wp_footer', 'dcs_mobile_menu' );
-
-
-
-// Responsive menu
 
 /**
  * Defines responsive menu settings.

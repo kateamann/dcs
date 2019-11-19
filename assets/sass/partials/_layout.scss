@@ -58,22 +58,22 @@ html {
 /* Site Container
 --------------------------------------------- */
 
-// .site-container {
-// 	animation: fadein 1s;
-// 	word-wrap: break-word;
-// }
+.site-container {
+	animation: fadein 1s;
+	word-wrap: break-word;
+}
 
-// @keyframes fadein {
+@keyframes fadein {
 
-// 	from {
-// 		opacity: 0;
-// 	}
+	from {
+		opacity: 0;
+	}
 
-// 	to {
-// 		opacity: 1;
-// 	}
+	to {
+		opacity: 1;
+	}
 
-// }
+}
 
 /* Site Inner
 --------------------------------------------- */
@@ -81,12 +81,42 @@ html {
 .site-inner {
 	clear: both;
 	margin: 0 auto;
-	padding: 30px 30px 0;
+	padding: 30px 20px 0;
 
 	@media only screen and (min-width: $small-screen) {
-		margin-top: 70px;
+		margin-top: 60px;
 		max-width: 1200px;
+		padding: 30px 30px 0;
 	}
+}
+
+
+/* Featured image
+--------------------------------------------- */
+
+.page-hero {
+	position: relative;
+	height: 50vh;
+	overflow: hidden;
+
+	// @media only screen and (min-width: $small-screen) {
+	// 	height: 70vh;
+	// }
+
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: 50% 50%;
+	}
+
+	// &.no-hero {
+	// 	height: 20px;
+
+	// 	@media only screen and (min-width: $small-screen) {
+	// 		height: 225px;
+	// 	}
+	// }
 }
 
 /* Content
@@ -96,11 +126,11 @@ html {
 
 	.content {
 		float: left;
-		width: 65%;
+		width: 800px;
 	}
 
-	.sidebar-content .content {
-		float: right;
+	.content-sidebar .content {
+		width: 65%;
 	}
 
 	.full-width-content .content,

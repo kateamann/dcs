@@ -2,7 +2,8 @@
 ---------------------------------------------------------------------------- */
 
 .footer-widgets {
-	background-color: $white;
+	background-color: $brand-grey;
+	color: $white;
 	clear: both;
 	padding: 30px 0;
 
@@ -12,7 +13,21 @@
 
 		@media only screen and (min-width: $small-screen) {
 			max-width: 1200px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 		}
+	}
+
+	a {
+		color: $white;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	a:hover,
+	li.current-menu-item a {
+		color: $brand-light-blue;
 	}
 }
 
@@ -22,6 +37,7 @@
 	margin-bottom: 20px;
 	padding-left: 30px;
 	padding-right: 30px;
+	text-align: center;
 
 	@media only screen and (min-width: $small-screen) {
 		float: left;
@@ -40,13 +56,17 @@
 ---------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: $white;
-	font-size: 15px;
+	background-color: $brand-lighter-grey;
+	font-size: 14px;
 	line-height: 1.5;
-	padding: 30px;
+	padding: 20px;
 	text-align: center;
 
 	p {
 		margin-bottom: 0;
+	}
+
+	a {
+		color: $dark-grey;
 	}
 }

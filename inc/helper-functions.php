@@ -8,31 +8,110 @@
  * @license     GPL-2.0+
  */
 
+
 /**
- * Add contact details shortcode
+ * Display partner list by category shortcode
  */
-// function display_contact_details() {
-// 	$name = get_bloginfo('name');
-// 	$street = get_field('address_street', 'option');
-// 	$city = get_field('address_locality', 'option');
-// 	$postcode = get_field('address_postal', 'option');
-// 	$country = get_field('address_country', 'option');
-// 	$phone = get_field('company_phone', 'options');
-// 	$email = get_field('contact_email', 'options');
+add_shortcode( 'list_partners', 'dcs_partner_list_shortcode' );
+function dcs_partner_list_shortcode( $atts ) {
+    ob_start();
 
-// 	if( $phone ) { 
+    // define attributes and their defaults
+    extract( shortcode_atts( array (
+        'category' => 'expert-partners',
+    ), $atts ) );
+ 
+    // define query parameters based on attributes
+    $options = array(
+        'post_type' => 'partners',
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+			array(
+				'taxonomy' => 'our-partners',
+				'field'    => 'slug',
+				'terms'    => $category,
+			),
+		),
+    );
+    $query = new WP_Query( $options );
 
-// 		$contact_details = '<div class="contact-block">';
-// 		$contact_details .= '<div class="phone"><i class="fas fa-phone"></i><a href="tel:44' . $phone . '">+44 ' . $phone . '</a></div>';
-// 		$contact_details .= '<div class="email"><i class="fas fa-at"></i><a href="mailto:' . $email . '">' . $email . '</a></div>';
-// 		$contact_details .= '<i class="fas fa-envelope"></i><div class="address">' . $name . '<br/>' . $street . '<br/>' . $city . '<br/>' . $postcode . '<br/>' . $country . '</div>';
-// 		$contact_details .= '</div>';
-// 	}
+    if ( $query->have_posts() ) { ?>
+        <ul class="partner-list two-column-list">
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            <li class="post-<?php the_ID(); ?>">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </li>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        </ul>
+    <?php $partner_list = ob_get_clean();
+    return $partner_list;
+    }
+}
 
-// 	return $contact_details;
+/**
+ * Display partner logos shortcode
+ */
+add_shortcode( 'partner_logos', 'dcs_partner_logos_shortcode' );
+function dcs_partner_logos_shortcode( $atts ) {
+    ob_start();
+ 
+    $query = new WP_Query( array(
+        'post_type' => 'partners',
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'posts_per_page' => -1,
+    ) );
 
-// }
-// add_shortcode( 'display-contact-info', 'display_contact_details' );
+    if ( $query->have_posts() ) { ?>
+        <section class="partner-logos clearfix">
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            <div class="logo post-<?php the_ID(); ?>">
+                <?php the_post_thumbnail( 'medium' );?>
+            </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        </section>
+    <?php $partner_logos = ob_get_clean();
+    return $partner_logos;
+    }
+}
+
+
+// Add author name to post meta
+add_filter( 'genesis_post_info', 'add_post_author_name' );
+function add_post_author_name($post_info) {
+    $post_info = '[post_date] [post_author_name]';
+    if ( is_singular('post') ) {
+        $post_info = '[post_date] [post_author_name] [post_categories sep=", " before="Posted Under: "]';
+    }
+
+    return $post_info;
+}
+
+
+/**
+ * Author name shortcode
+ */
+add_shortcode( 'post_author_name', 'get_post_author_name' );
+function get_post_author_name ($atts){
+
+    global $post;
+    $post_author = get_field('post_author');
+
+    if ( $post_author ) {
+        $post = $post_author;
+        setup_postdata( $post );
+
+        $writer = get_field('post_author', $post_author->ID); 
+        $person_name = get_the_title($writer); 
+
+        wp_reset_postdata();
+        return 'by ' . $person_name;
+    }
+}
 
 
 /**
@@ -42,9 +121,3 @@ function yoast_to_bottom() {
   return 'low';
 }
 //add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom');
-
-
-/**
- * Yoast pagination link fix
- */
-// add_filter( 'wpseo_genesis_force_adjacent_rel_home', '__return_true' );

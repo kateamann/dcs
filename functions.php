@@ -35,23 +35,24 @@ function dcs_child_theme_setup() {
 	include_once( get_stylesheet_directory() . '/inc/custom-login.php' );
 	include_once( get_stylesheet_directory() . '/inc/navigation.php' );
 	include_once( get_stylesheet_directory() . '/inc/custom-logo.php' );
-	// include_once( get_stylesheet_directory() . '/inc/company-schema.php' );
 	
 	// Adds WooCommerce support.
-	// require_once get_stylesheet_directory() . '/woocommerce/woocommerce-setup.php';
+	require_once get_stylesheet_directory() . '/woocommerce/woocommerce-setup.php';
 
 	// Adds the required WooCommerce styles and Customizer CSS.
-	// require_once get_stylesheet_directory() . '/woocommerce/woocommerce-output.php';
+	require_once get_stylesheet_directory() . '/woocommerce/woocommerce-output.php';
 
 	// Adds the Genesis Connect WooCommerce notice.
-	// require_once get_stylesheet_directory() . '/woocommerce/woocommerce-notice.php';
+	require_once get_stylesheet_directory() . '/woocommerce/woocommerce-notice.php';
 
 	// Editor Styles
 	// add_theme_support( 'editor-styles' );
 	// add_editor_style( 'assets/css/editor-style.css' );
 
 	// Image Sizes
-	// add_image_size( 'dcs_featured', 400, 100, true );
+	add_image_size( '1800-hero', 1800, 1200, true );
+	add_image_size( 'testimonial-thumb', 150, 150, false );
+	add_image_size( 'square-bio', 350, 350, true );
 
 	// Gutenberg
 
@@ -98,14 +99,9 @@ function dcs_child_theme_setup() {
 	// -- Editor Color Palette
 	add_theme_support( 'editor-color-palette', array(
 		array(
-			'name'  => __( 'Lightest gray', CHILD_TEXT_DOMAIN ),
-			'slug'  => 'light-gray',
-			'color' => '#f5f5f5',
-		),
-		array(
 			'name'  => __( 'Light gray', CHILD_TEXT_DOMAIN ),
 			'slug'  => 'light-gray',
-			'color' => '#eeeeee',
+			'color' => '#f5f5f5',
 		),
 		array(
 			'name'  => __( 'Medium gray', CHILD_TEXT_DOMAIN ),
@@ -116,6 +112,11 @@ function dcs_child_theme_setup() {
 			'name'  => __( 'Dark gray', CHILD_TEXT_DOMAIN ),
 			'slug'  => 'dark-gray',
 			'color' => '#333333',
+		),
+		array(
+			'name'  => __( 'DCS blue', CHILD_TEXT_DOMAIN ),
+			'slug'  => 'dcs-blue',
+			'color' => '#009FDF',
 		),
 	) );
 
@@ -139,32 +140,26 @@ function dcs_global_enqueues() {
 
 	// css
 	wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fonts', dcs_theme_fonts_url() );
-    //wp_enqueue_style( CHILD_TEXT_DOMAIN . '-style', get_stylesheet_directory_uri() . '/style.css', array(), CHILD_THEME_VERSION );
-    wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fontawesome', '//use.fontawesome.com/releases/v5.7.2/css/all.css', array(), CHILD_THEME_VERSION );
-    wp_enqueue_style( 'dashicons' );
 
-	// Move jQuery to footer
-	// if( ! is_admin() ) {
-	// 	wp_deregister_script( 'jquery' );
-	// 	wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-	// 	wp_enqueue_script( 'jquery' );
-	// }
+    wp_enqueue_style( CHILD_TEXT_DOMAIN . '-fontawesome', '//use.fontawesome.com/releases/v5.7.2/css/all.css', array(), CHILD_THEME_VERSION );
+
+    wp_enqueue_style( 'dashicons' );
 	
 	// javascript
-	// $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	// wp_enqueue_script(
-	// 	CHILD_TEXT_DOMAIN . '-responsive-menu',
-	// 	get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js",
-	// 	array( 'jquery' ),
-	// 	CHILD_THEME_VERSION,
-	// 	true
-	// );
+	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	wp_enqueue_script(
+		CHILD_TEXT_DOMAIN . '-responsive-menu',
+		get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js",
+		array( 'jquery' ),
+		CHILD_THEME_VERSION,
+		true
+	);
 
-	// wp_localize_script(
-	// 	CHILD_TEXT_DOMAIN . '-responsive-menu',
-	// 	'genesis_responsive_menu',
-	// 	responsive_menu_settings()
-	// );
+	wp_localize_script(
+		CHILD_TEXT_DOMAIN . '-responsive-menu',
+		'genesis_responsive_menu',
+		responsive_menu_settings()
+	);
 
 }
 add_action( 'wp_enqueue_scripts', 'dcs_global_enqueues' );
@@ -186,7 +181,7 @@ add_action( 'enqueue_block_editor_assets', 'dcs_gutenberg_scripts' );
  *
  */
 function dcs_theme_fonts_url() {
-	$font_families = apply_filters( 'dcs_theme_fonts', array( 'Libre+Franklin:400,400i,700,700i' ) );
+	$font_families = apply_filters( 'dcs_theme_fonts', array( 'Libre+Franklin:400,400i,600,600i' ) );
 	$query_args = array(
 		'family' => implode( '|', $font_families ),
 		'subset' => 'latin,latin-ext',

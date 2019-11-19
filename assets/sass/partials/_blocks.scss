@@ -20,21 +20,20 @@ body {
 	overflow-x: hidden;
 }
 
-// button,
-// input:focus,
-// input[type="button"],
-// input[type="reset"],
-// input[type="submit"],
-// textarea:focus,
-// .button,
-// .gallery img {
-// 	transition: all 0.2s ease-in-out;
-// }
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button,
+.gallery img {
+	transition: all 0.2s ease-in-out;
+}
 
 a {
-	color: $green;
-	text-decoration: none;
-	// transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	color: $brand-blue;
+	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 a:focus,
@@ -67,7 +66,8 @@ hr {
 
 b,
 strong {
-	font-weight: 700;
+	font-weight: 600;
+	color: $brand-blue;
 }
 
 blockquote,
@@ -99,18 +99,20 @@ h6 {
 	font-weight: 400;
 	line-height: $headings-line-height;
 	margin: 0 0 20px;
+	color: $brand-blue;
 }
 
 h1 {
 	font-size: 30px;
+	font-weight: 600;
 }
 
 h2 {
-	font-size: 27px;
+	font-size: 26px;
 }
 
 h3 {
-	font-size: 24px;
+	font-size: 22px;
 }
 
 h4 {
@@ -267,7 +269,6 @@ th:first-child {
 --------------------------------------------- */
 
 .avatar {
-	border-radius: 50%;
 	float: left;
 }
 
@@ -323,17 +324,22 @@ th:first-child {
 
 .entry-title {
 	font-size: 30px;
-	margin-bottom: 10px;
+	text-align: center;
+}
+
+article.post .entry-title {
+	text-align: left;
 }
 
 .entry-title a,
 .sidebar .widget-title a {
 	color: $dark-grey;
+	text-decoration: none;
 }
 
 .entry-title a:focus,
 .entry-title a:hover {
-	color: $green;
+	color: $brand-blue;
 }
 
 .widget-title {
@@ -391,6 +397,11 @@ a.alignright,
 img.alignright,
 .wp-caption.alignright {
 	margin: 0 0 20px 20px;
+}
+
+.wp-post-image,
+.post-image {
+	margin-bottom: 20px;
 }
 
 .gallery-caption,
@@ -453,21 +464,206 @@ img.alignright,
 	text-align: center;
 }
 
-/* Featured Content
+/* Testimonials
 --------------------------------------------- */
 
-// .featured-content .entry {
-// 	border-bottom: 1px solid $light-grey;
-// 	margin-bottom: 20px;
-// }
+.entry-content .strong-view.default {
 
-// .featured-content .entry:last-of-type {
-// 	border-bottom: none;
-// 	margin-bottom: 0;
-// }
+	.testimonial-inner {
+	    border: none;
+	    background-color: $brand-lighter-blue;
+	}
 
-// .featured-content .entry-title {
-// 	font-size: 16px;
-// 	margin-bottom: 5px;
-// 	margin-top: 10px;
-// }
+	.testimonial {
+	     border: none; 
+	}
+
+	h3.testimonial-heading {
+		color: $dark-grey;
+		font-weight: 600;
+	}
+} 
+
+/* Logos
+--------------------------------------------- */
+
+.partner-logos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
+	.logo {
+		width: 200px;
+		height: auto;
+		padding: 20px;
+
+		img {
+			display: block;
+		}
+	}
+
+}
+
+
+
+/* Accordions
+--------------------------------------------- */
+
+.all-courses,
+.team-bios {
+
+	input {
+		position: absolute;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	// :checked
+	input:checked {
+		+ .tab-label {
+			background: darken($brand-blue, 5%);
+
+			&::after {
+				transform-origin: center;
+				transform: rotate(90deg);
+			}
+		}
+
+		~ .tab-content {
+			max-height: 100vh;
+		}
+	}
+
+	.tabs {
+		overflow: hidden;
+	}
+
+	.tab {
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 30px;
+
+		&-label {
+			display: flex;
+			justify-content: space-between;
+			cursor: pointer;
+
+			/* Icon */
+			&:hover {
+				background: darken($brand-blue, 5%);
+			}
+
+			&::after {
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+				font-size: 30px;
+				content: "\f0da";
+				margin: -11px 0;
+				text-align: center;
+				transition: all .35s;
+			}
+		}
+
+		&-content {
+			max-height: 0;
+			color: $dark-grey;
+			background: white;
+			transition: all .35s;
+		}
+
+		&-close {
+			display: flex;
+			justify-content: flex-end;
+			cursor: pointer;
+
+			&:hover {
+				background: darken($brand-blue, 5%);
+			}
+		}
+	}
+}
+
+.all-courses {
+	// :checked
+	input:checked {
+		+ .tab-label {
+			background: darken($brand-blue, 5%);
+		}
+
+		~ .tab-content {
+			padding: 16px;
+		}
+	}
+
+	.tab {
+		color: $white;
+		border: 1px solid $brand-blue;
+
+		&-label {
+			padding: 16px;
+			background: $brand-blue;
+			font-weight: 600;
+
+			/* Icon */
+			&:hover {
+				background: darken($brand-blue, 5%);
+			}
+		}
+
+		&-content {
+			padding: 0 16px;
+		}
+
+		&-close {
+			padding: 16px;
+			background: $brand-blue;
+
+			&:hover {
+				background: darken($brand-blue, 5%);
+			}
+		}
+	}
+
+}
+
+.team-bios {
+	input:checked {
+		+ .tab-label {
+			background: $white;
+		}
+
+		~ .tab-content {
+			padding: 0;
+		}
+	}
+
+	.tab {
+		color: $brand-blue;
+
+		&-label {
+			padding-right: 10px;
+			background: $white;
+			font-weight: 600;
+
+			/* Icon */
+			&:hover {
+				background: $white;
+			}
+		}
+
+		&-content {
+			padding: 0;
+		}
+
+		&-close {
+			padding: 0;
+			background: $white;
+
+			&:hover {
+				background: $white;
+			}
+		}
+	}
+
+}

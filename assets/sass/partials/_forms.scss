@@ -68,7 +68,7 @@ input[type="submit"]:focus,
 input[type="submit"]:hover,
 .button:focus,
 .button:hover {
-	background-color: $green;
+	background-color: $brand-blue;
 	color: $white;
 }
 
@@ -102,7 +102,25 @@ input[type="search"]::-webkit-search-results-button {
 	display: none;
 }
 
+/* Mailchimp
+--------------------------------------------- */
 
+#mc_embed_signup {
+	background-color: $brand-lighter-blue;
+	border: 5px solid $brand-blue;
+	padding: 20px;
+	text-align: center;
+}
+
+
+.mc-field-group {
+    margin-bottom: 15px;
+}
+
+p.small {
+	font-size: 0.8em;
+	margin: 20px 0 0;
+}
 
 /* Search Form
 --------------------------------------------- */
