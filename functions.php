@@ -191,8 +191,6 @@ function dcs_theme_fonts_url() {
 }
 
 
-
-
 /**
  * Sets localization (do not remove).
  *
@@ -204,3 +202,12 @@ function dcs_localization_setup() {
 
 }
 add_action( 'after_setup_theme', 'dcs_localization_setup' );
+
+
+/**
+ * ACF Options page
+ *
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}

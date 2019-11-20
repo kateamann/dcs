@@ -25,6 +25,7 @@ function display_full_partner_info() {
     $photo_size = 'square-bio';
     $products_services = get_field('products_and_services');
     $intro = get_field('contact_introduction');
+    $link = get_field('all_partners_link', 'option');
     ?>
 
 
@@ -67,11 +68,12 @@ function display_full_partner_info() {
 
     }
 
-    ?>
-
-    <p><strong><a href="/funded-services/project-partners/"><i class="fas fa-angle-double-left"></i> Back to all partners</a></strong></p>
-
-    <?php
+    if( $link ): 
+        $link_url = $link['url'];
+        $link_target = $link['target'] ? $link['target'] : '_self';
+        ?>
+        <p><strong><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><i class="fas fa-angle-double-left"></i> Back to all partners</a></strong></p>
+    <?php endif;
 
 }
 

@@ -306,6 +306,16 @@
 		float: right;
 		width: auto;
 
+		ul li.menu-item-has-children > a::after, 
+		ul li.page-item-has-children > a::after {
+			content: "\f078";
+	    	display: inline-block;
+	    	font-family: "Font Awesome 5 Free";
+			margin-left: 10px;
+			font-weight: 900;
+			line-height: .8;
+		}
+
 		.genesis-nav-menu a {
 			padding-left: 15px;
 			padding-right: 15px;

@@ -18,6 +18,7 @@ function display_full_course_info() {
     $description = get_field('full_description');
     $audience = get_field('aimed_at');
     $outcomes = get_field('learning_outcomes');
+    $link = get_field('all_courses_link', 'option');
 
     if( $description ) { ?>
         <h2>Course description</h2>
@@ -48,12 +49,13 @@ function display_full_course_info() {
         get_template_part('course-dates-loop');
         
     }
-
-    ?>
-
-    <p><strong><a href="/funded-services/courses/"><i class="fas fa-angle-double-left"></i> Back to all courses</a></strong></p>
-
-    <?php
+    
+    if( $link ): 
+        $link_url = $link['url'];
+        $link_target = $link['target'] ? $link['target'] : '_self';
+        ?>
+        <p><strong><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><i class="fas fa-angle-double-left"></i> Back to all courses</a></strong></p>
+    <?php endif; 
 
 }
 
