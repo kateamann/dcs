@@ -11,7 +11,6 @@
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
-
 add_action( 'genesis_entry_content', 'display_full_partner_info', 6 );
 function display_full_partner_info() { 
 
@@ -27,9 +26,6 @@ function display_full_partner_info() {
     $intro = get_field('contact_introduction');
     $link = get_field('all_partners_link', 'option');
     ?>
-
-
-
     
     <div class="partner-logo">
         <?php the_post_thumbnail('medium'); ?>
@@ -44,15 +40,11 @@ function display_full_partner_info() {
 
     <?php
 
-
     if( $products_services ) { ?>
         <h2>Products and services</h2>
             <?php echo $products_services; ?>
-
         <?php 
     }
-
-    
 
     if( $intro ) { ?>
         <h2>Introduction from <?php echo $first_name; ?></h2>
@@ -61,11 +53,9 @@ function display_full_partner_info() {
             <div class="partner-contact-image">
                 <?php echo wp_get_attachment_image( $photo, $photo_size ); ?>
             </div>
-
-            <?php
+        <?php
         }
-            echo $intro; 
-
+        echo $intro; 
     }
 
     if( $link ): 
