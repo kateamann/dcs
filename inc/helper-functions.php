@@ -69,7 +69,9 @@ function dcs_partner_logos_shortcode( $atts ) {
         <section class="partner-logos clearfix">
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             <div class="logo post-<?php the_ID(); ?>">
+                <a href="<?php the_permalink(); ?>">
                 <?php the_post_thumbnail( 'medium' );?>
+                </a>
             </div>
             <?php endwhile;
             wp_reset_postdata(); ?>

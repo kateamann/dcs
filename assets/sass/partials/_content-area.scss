@@ -95,25 +95,29 @@
 		background-color: $light-grey;
 	}
 
+	.flowchart {
+		max-width: 500px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
 	.flowchart div p {
 		border: 2px solid $brand-blue;
+		border-radius: 10px;
 		padding: 20px;
+		margin: 0;
 	}
 
-	.flowchart div p:before {
-		content: "\f309";
+	.flowchart div i.fas {
 		color: $brand-blue;
-		font-family: "Font Awesome 5 Free";
-	    font-weight: 900;
-	    display: block;
 	    font-size: 60px;
-	    text-align: center;
-	    margin-top: -65px;
-	    line-height: 1.25;
+	    margin-top: -24px;
 	}
 
-	.flowchart div p:first-of-type:before {
-	    display: none;
+	.flowchart div p:last-of-type {
+		border: 6px double $brand-blue;
+		margin-bottom: 20px;
+		background-color: $brand-lighter-blue;
 	}
 }
 
@@ -202,6 +206,16 @@
 		margin-right: 20px;
 	}
 
+}
+
+.cta-button-list {
+	text-align: center;
+
+	@media only screen and (min-width: $small-screen) {
+		.wp-block-atomic-blocks-ab-button.ab-block-button {
+		    display: inline-block;
+		}
+	}	
 }
 
 /* Entry Meta

@@ -517,6 +517,10 @@ img.alignright,
 		position: absolute;
 		opacity: 0;
 		z-index: -1;
+
+		~ .tab-content {
+			max-height: 0;
+		}
 	}
 
 	// :checked
@@ -531,7 +535,7 @@ img.alignright,
 		}
 
 		~ .tab-content {
-			max-height: 100vh;
+			max-height: 100%;
 		}
 	}
 
