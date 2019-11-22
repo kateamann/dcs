@@ -105,11 +105,15 @@ input[type="search"]::-webkit-search-results-button {
 /* Mailchimp
 --------------------------------------------- */
 
-#mc_embed_signup {
+.standout-box {
 	background-color: $brand-lighter-blue;
 	border: 5px solid $brand-blue;
 	padding: 20px;
 	text-align: center;
+
+	.ab-block-button {
+		margin-bottom: 0;
+	}
 }
 
 

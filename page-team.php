@@ -47,7 +47,7 @@ function dcs_team_bios() {
 							 <?php the_post_thumbnail( 'square-bio' );?>
 						</div>
 						<div class="short-bio">
-							<h3><?php the_title(); ?><?php if($degree) { echo ', ' . $degree; } ?><?php echo ', ' . $job_title . ', ' . $company_name; ?></h3>
+							<h3><?php the_title(); ?><?php if($degree) { echo ', ' . $degree; } ?><?php echo ', ' . $job_title; ?></h3>
 
 							<?php echo $short_bio; ?>
 
