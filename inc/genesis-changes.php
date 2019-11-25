@@ -116,6 +116,24 @@ function dcs_featured_image() {
 
 	if ( !has_post_thumbnail() || is_home() || is_singular( array( 'post', 'people', 'courses', 'partners') ) ) { 
 		return;
+	} elseif ( is_front_page() ) { 
+
+		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
+		remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+
+		?>
+
+		<div class="page-hero">
+			<?php the_post_thumbnail('1800-hero'); ?>
+			<div class="hero-overlay">
+				<div class="wrap">
+				<?php genesis_do_post_title(); ?>
+				</div>
+			</div>
+		</div>
+
+		<?php
 	}
 
 	else { ?>

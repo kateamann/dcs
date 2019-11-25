@@ -37,15 +37,20 @@ function course_listings() {
 
 				      <div class="tab">
 				        <input type="checkbox" id="<?php echo $id; ?>">
-				        <label class="tab-label" for="<?php echo $id; ?>"><?php the_title(); ?> (<?php echo $length; ?>)</label>
+				        <label class="tab-label" for="<?php echo $id; ?>"><?php the_title(); ?> <?php if ($length ) { echo '(' . $length . ')'; } ?></label>
 				        <div class="tab-content">
 				        <?php echo $description; ?>
+
+				        	<?php if ( have_rows('course_dates') ) { ?>
 					        <p><strong><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							Full Course Details <i class="fas fa-angle-double-right"></i>
 							</a></strong></p>
-
-							<h3>Dates and prices</h3>
-        					<?php get_template_part('course-dates-loop'); ?>
+							
+								<h3>Dates and prices</h3>
+        						<?php get_template_part('course-dates-loop'); ?>
+							<?php
+							} ?>
+							
 				        </div>
 				      </div>
 		    

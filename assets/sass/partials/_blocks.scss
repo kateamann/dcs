@@ -111,6 +111,11 @@ h2 {
 	font-size: 26px;
 }
 
+h2.home-first {
+	font-size: 30px;
+	font-weight: 600;
+}
+
 h3 {
 	font-size: 22px;
 }
@@ -519,6 +524,7 @@ img.alignright,
 		z-index: -1;
 
 		~ .tab-content {
+			height: 0;
 			max-height: 0;
 		}
 	}
@@ -535,6 +541,7 @@ img.alignright,
 		}
 
 		~ .tab-content {
+			height: 100%;
 			max-height: 100%;
 			display: block;
 		}
@@ -571,6 +578,7 @@ img.alignright,
 		}
 
 		&-content {
+			height: 0;
 			max-height: 0;
 			color: $dark-grey;
 			background: white;
