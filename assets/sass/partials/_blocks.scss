@@ -499,15 +499,20 @@ img.alignright,
 	flex-wrap: wrap;
 
 	.logo {
-		width: 200px;
+		width: 125px;
 		height: auto;
-		padding: 20px;
+		padding: 10px;
 
 		img {
 			display: block;
 		}
 	}
 
+	@media only screen and (min-width: $small-screen) {
+		.logo {
+			width: 150px;
+		}
+	}
 }
 
 
@@ -515,168 +520,47 @@ img.alignright,
 /* Accordions
 --------------------------------------------- */
 
-.all-courses,
-.team-bios {
+.dcs-accordion-blocks {
 
-	input {
-		position: absolute;
-		opacity: 0;
-		z-index: -1;
-
-		~ .tab-content {
-			height: 0;
-			max-height: 0;
-		}
+	.c-accordion__title:after {
+	    font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		font-size: 30px;
+		content: "\f0da"; 
 	}
 
-	// :checked
-	input:checked {
-		+ .tab-label {
-			background: darken($brand-blue, 5%);
-
-			&::after {
-				transform-origin: center;
-				transform: rotate(90deg);
-			}
-		}
-
-		~ .tab-content {
-			height: 100%;
-			max-height: 100%;
-			display: block;
-		}
-	}
-
-	.tabs {
-		overflow: hidden;
-	}
-
-	.tab {
-		width: 100%;
-		overflow: hidden;
-		margin-bottom: 30px;
-
-		&-label {
-			display: flex;
-			justify-content: space-between;
-			cursor: pointer;
-
-			/* Icon */
-			&:hover {
-				background: darken($brand-blue, 5%);
-			}
-
-			&::after {
-				font-family: "Font Awesome 5 Free";
-				font-weight: 900;
-				font-size: 30px;
-				content: "\f0da";
-				margin: -11px 0;
-				text-align: center;
-				transition: all .35s;
-			}
-		}
-
-		&-content {
-			height: 0;
-			max-height: 0;
-			color: $dark-grey;
-			background: white;
-			transition: all .35s;
-		}
-
-		&-close {
-			display: flex;
-			justify-content: flex-end;
-			cursor: pointer;
-
-			&:hover {
-				background: darken($brand-blue, 5%);
-			}
-		}
+	.is-open .c-accordion__title:after {
+	    content: "\f0d7";
 	}
 }
+
 
 .all-courses {
-	// :checked
-	input:checked {
-		+ .tab-label {
-			background: darken($brand-blue, 5%);
+	.dcs-accordion-blocks {
+		.c-accordion__title,
+		.c-accordion__title:focus {
+		    color: $white;
+		    background-color: $brand-blue;
+		    padding: 16px 32px 16px 16px;
 		}
 
-		~ .tab-content {
-			padding: 16px;
-		}
-	}
-
-	.tab {
-		color: $white;
-		border: 1px solid $brand-blue;
-
-		&-label {
-			padding: 16px;
-			background: $brand-blue;
-			font-weight: 600;
-
-			/* Icon */
-			&:hover {
-				background: darken($brand-blue, 5%);
-			}
-		}
-
-		&-content {
-			padding: 0 16px;
-		}
-
-		&-close {
-			padding: 16px;
-			background: $brand-blue;
-
-			&:hover {
-				background: darken($brand-blue, 5%);
-			}
+		.c-accordion__title:after {
+			color: $white;
+			padding: 16px;   
 		}
 	}
-
 }
 
 .team-bios {
-	input:checked {
-		+ .tab-label {
-			background: $white;
+	.dcs-accordion-blocks {
+		.c-accordion__title,
+		.c-accordion__title:focus {
+		    color: $brand-blue;
+		    background-color: $white;
 		}
 
-		~ .tab-content {
-			padding: 0;
-		}
-	}
-
-	.tab {
-		color: $brand-blue;
-
-		&-label {
-			padding-right: 10px;
-			background: $white;
-			font-weight: 600;
-
-			/* Icon */
-			&:hover {
-				background: $white;
-			}
-		}
-
-		&-content {
-			padding: 0;
-		}
-
-		&-close {
-			padding: 0;
-			background: $white;
-
-			&:hover {
-				background: $white;
-			}
+		.c-accordion__title:after {
+			color: $brand-blue;
 		}
 	}
-
 }

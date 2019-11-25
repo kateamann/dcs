@@ -72,6 +72,11 @@ input[type="submit"]:hover,
 	color: $white;
 }
 
+.ab-button:hover,
+.ab-button:focus {
+	background-color: $dark-grey;
+}
+
 .entry-content .button:focus,
 .entry-content .button:hover {
 	color: $white;

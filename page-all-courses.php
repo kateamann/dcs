@@ -23,7 +23,7 @@ function course_listings() {
 
     <div class="all-courses">
     <h2>Courses</h2>
-    	<div class="tabs">
+    	<div class="dcs-accordion-blocks">
 
 		    <?php 
 
@@ -35,24 +35,22 @@ function course_listings() {
 
 		    	?>
 
-				      <div class="tab">
-				        <input type="checkbox" id="<?php echo $id; ?>">
-				        <label class="tab-label" for="<?php echo $id; ?>"><?php the_title(); ?> <?php if ($length ) { echo '(' . $length . ')'; } ?></label>
-				        <div class="tab-content">
-				        <?php echo $description; ?>
+			    <div class="wp-block-pb-accordion-item c-accordion__item js-accordion-item" data-initially-open="false" data-click-to-close="true" data-auto-close="true" data-scroll="false" data-scroll-offset="0">
+					<h3 id="at-<?php echo $id; ?>" class="c-accordion__title js-accordion-controller" tabindex="0" role="button" aria-controls="ac-<?php echo $id; ?>" aria-expanded="false"><?php the_title(); ?> <?php if ($length ) { echo '(' . $length . ')'; } ?></h3>
+					<div id="ac-<?php echo $id; ?>" class="c-accordion__content" style="display: none;" aria-hidden="true">
+						<?php echo $description; ?>
 
-				        	<?php if ( have_rows('course_dates') ) { ?>
-					        <p><strong><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-							Full Course Details <i class="fas fa-angle-double-right"></i>
-							</a></strong></p>
-							
-								<h3>Dates and prices</h3>
-        						<?php get_template_part('course-dates-loop'); ?>
-							<?php
-							} ?>
-							
-				        </div>
-				      </div>
+						<?php if ( have_rows('course_dates') ) { ?>
+				        <p><strong><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+						Full Course Details <i class="fas fa-angle-double-right"></i>
+						</a></strong></p>
+						
+							<h3>Dates and prices</h3>
+							<?php get_template_part('course-dates-loop'); ?>
+						<?php
+						} ?>
+					</div>
+				</div>
 		    
 		    <?php
 			endwhile;
@@ -60,7 +58,9 @@ function course_listings() {
 			wp_reset_postdata(); ?>
 
     	</div>
-    </div> <?php
+    </div> 
+
+    <?php
 }
 
 add_action( 'genesis_entry_content', 'additional_course_info', 11 );
@@ -73,7 +73,5 @@ function additional_course_info() {
 	}
 
 }
-
-
 
 genesis();
