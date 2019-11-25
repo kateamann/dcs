@@ -62,30 +62,6 @@
         }
 	}
 
-	ul.key-messages {
-		padding: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-wrap: wrap;
-		font-size: 18px;
-		color: $white;
-		font-weight: 600;
-
-		> li {
-			width: 45%;
-			height: auto;
-			padding: 8px 16px;
-			margin: 8px;
-			background-color: $brand-grey;
-			text-align: center;
-		}
-
-		> li::before {
-			display: none;
-		}
-	}
-
 	ul.inline-list {
 		text-align: center;
 		padding-left: 0;
@@ -97,6 +73,12 @@
 
 		> li:first-child::before {
 			display: none;
+		}
+
+		&.key-messages {
+			max-width: 80%;
+			margin: 0 auto;
+			font-size: 18px;
 		}
 	}
 
