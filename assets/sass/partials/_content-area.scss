@@ -62,6 +62,30 @@
         }
 	}
 
+	ul.key-messages {
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		font-size: 18px;
+		color: $white;
+		font-weight: 600;
+
+		> li {
+			width: 45%;
+			height: auto;
+			padding: 8px 16px;
+			margin: 8px;
+			background-color: $brand-grey;
+			text-align: center;
+		}
+
+		> li::before {
+			display: none;
+		}
+	}
+
 	ul.inline-list {
 		text-align: center;
 		padding-left: 0;
@@ -211,11 +235,13 @@
 .cta-button-list {
 	text-align: center;
 
-	@media only screen and (min-width: $small-screen) {
-		.wp-block-atomic-blocks-ab-button.ab-block-button {
+	.wp-block-button {
+		margin-bottom: 20px;
+
+		@media only screen and (min-width: $small-screen) {
 		    display: inline-block;
-		}
-	}	
+		}	
+	}
 }
 
 /* Entry Meta
