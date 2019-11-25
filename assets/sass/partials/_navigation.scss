@@ -236,18 +236,17 @@
 	}
 }
 
+.sub-menu-toggle {
+	background-color: $brand-lighter-blue;
+}
+
 .menu-toggle:focus,
 .menu-toggle:hover,
 .sub-menu-toggle:focus,
 .sub-menu-toggle:hover {
-	background-color: transparent;
+	background-color: $brand-lighter-blue;
 	border-width: 0;
-	color: $brand-blue;
-}
-
-.current-menu-item .sub-menu-toggle:focus,
-.current-menu-item .sub-menu-toggle:hover {
-	color: $white;
+	color: $dark-grey;
 }
 
 .menu-toggle {
