@@ -114,7 +114,7 @@ add_filter( 'theme_page_templates', 'dcs_remove_genesis_templates' );
 add_action( 'genesis_after_header', 'dcs_featured_image', 10 );
 function dcs_featured_image() {
 
-	if ( !has_post_thumbnail() || is_home() || is_singular( array( 'post', 'people', 'courses', 'partners') ) ) { 
+	if ( !has_post_thumbnail() || is_home() || is_archive() || is_singular( array( 'post', 'people', 'courses', 'partners') ) ) { 
 		return;
 	} elseif ( is_front_page() ) { 
 
