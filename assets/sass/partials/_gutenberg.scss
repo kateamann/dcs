@@ -33,35 +33,35 @@
 ---------------------------------------------------------------------------- */
 
 .entry-content .has-light-gray-background-color {
-	background-color: #f5f5f5 !important;
+	background-color: $light-grey !important;
 }
 
 .entry-content .has-light-gray-color {
-	color: #f5f5f5 !important;
+	color: $light-grey !important;
 }
 
 .entry-content .has-medium-gray-background-color {
-	background-color: #999 !important;
+	background-color: $mid-grey !important;
 }
 
 .entry-content .has-medium-gray-color {
-	color: #999 !important;
+	color: $mid-grey !important;
 }
 
 .entry-content .has-dark-gray-background-color {
-	background-color: #333 !important;
+	background-color: $dark-grey !important;
 }
 
 .entry-content .has-dark-gray-color {
-	color: #333 !important;
+	color: $dark-grey !important;
 }
 
 .entry-content .has-dcs-blue-background-color {
-	background-color: #009FDF !important;
+	background-color: $brand-blue !important;
 }
 
 .entry-content .has-dcs-blue-color {
-	color: #009FDF !important;
+	color: $brand-blue !important;
 }
 
 /* Background Color
@@ -89,7 +89,7 @@
 }
 
 .entry-content p.has-background.light-text a {
-	color: #fff;
+	color: $white;
 	text-decoration: underline;
 }
 
@@ -159,10 +159,10 @@
 ---------------------------------------------------------------------------- */
 
 .content .wp-block-button .wp-block-button__link {
-	background-color: #333;
+	background-color: $dark-grey;
 	border: 0;
 	border-radius: 5px;
-	color: #fff;
+	color: $white;
 	cursor: pointer;
 	font-size: 16px;
 	font-weight: 600;
@@ -176,7 +176,7 @@
 .content .wp-block-button .wp-block-button__link:focus,
 .content .wp-block-button .wp-block-button__link:hover {
 	background-color: $brand-blue;
-	color: #fff;
+	color: $white;
 }
 
 /* Button Variations */
@@ -219,13 +219,13 @@
 }
 
 .entry-content .wp-block-pullquote.is-style-solid-color p {
-	color: #fff;
+	color: $white;
 	margin-bottom: 42px;
 	text-align: center;
 }
 
 .entry-content .wp-block-pullquote.is-style-solid-color {
-	background-color: #333;
+	background-color: $dark-grey;
 }
 
 .entry-content .wp-block-pullquote:not(.is-style-solid-color)[style*="border-color"] {
@@ -250,7 +250,7 @@
 }
 
 .entry-content .wp-block-pullquote.is-style-solid-color cite {
-	color: #fff;
+	color: $white;
 	font-style: italic;
 }
 

@@ -10,7 +10,6 @@
 **/
 
 //* Add Team bios
-
 add_action( 'genesis_entry_content', 'dcs_team_bios', 12 );
 function dcs_team_bios() {
 	

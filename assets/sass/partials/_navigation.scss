@@ -208,13 +208,13 @@
 	display: none;
 	position: relative;
 
+	.genesis-nav-menu .menu-item:hover > .sub-menu {
+		display: none;
+	}
+
 	@media only screen and (min-width: $small-screen) {
 		display: block;
 		padding-top: 15px;
-	}
-
-	.genesis-nav-menu .menu-item:hover > .sub-menu {
-		display: none;
 	}
 }
 

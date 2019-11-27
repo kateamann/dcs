@@ -174,11 +174,6 @@ html {
 	font-size: 15px;
 	line-height: 1.5;
 
-	@media only screen and (min-width: $small-screen) {
-		float: right;
-		width: 30%;
-	}
-
 	.widget {
 		margin-bottom: 60px;
 	}
@@ -189,6 +184,11 @@ html {
 }
 
 @media only screen and (min-width: $small-screen) {
+
+	.sidebar {
+		float: right;
+		width: 30%;
+	}
 
 	.sidebar-content .sidebar {
 		float: left;

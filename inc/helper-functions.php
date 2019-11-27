@@ -16,12 +16,10 @@ add_shortcode( 'list_partners', 'dcs_partner_list_shortcode' );
 function dcs_partner_list_shortcode( $atts ) {
     ob_start();
 
-    // define attributes and their defaults
     extract( shortcode_atts( array (
         'category' => 'expert-partners',
     ), $atts ) );
  
-    // define query parameters based on attributes
     $options = array(
         'post_type' => 'partners',
         'order' => 'ASC',
@@ -122,4 +120,4 @@ function get_post_author_name ($atts){
 function yoast_to_bottom() {
   return 'low';
 }
-//add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom');
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom');

@@ -134,13 +134,6 @@
 
 
 .single-partners {
-	.entry-content ul {
-        @media only screen and (min-width: $small-screen) {
-        	-webkit-columns: 2;
-	   		-moz-columns: 2;
-	        columns: 2;
-        }
-	}
 
 	.partner-logo {
 		width: 100%;
@@ -156,11 +149,19 @@
 		width: 200px;
 		height: auto;
 		margin: 0 0 10px;
+	}
 
-		@media only screen and (min-width: $small-screen) {
-			float: right;
+	@media only screen and (min-width: $small-screen) {
+		.entry-content ul {
+        	-webkit-columns: 2;
+	   		-moz-columns: 2;
+	        columns: 2;
+        }
+
+        .partner-contact-image {
+        	float: right;
 			margin: 0 0 10px 20px;
-		}
+        }
 	}
 }
 
@@ -197,19 +198,18 @@
 		margin: 40px 0 60px;
 	}
 
-	.team-header {
-
-		@media only screen and (min-width: $smaller-screen) {
-			display: flex;
-			justify-content: space-between;
-		}
-	}
-
 	.bio-image {
 		width: 200px;
 		min-width: 200px;
 		margin-bottom: 20px;
 		margin-right: 20px;
+	}
+
+	@media only screen and (min-width: $smaller-screen) {
+		.team-header {
+			display: flex;
+			justify-content: space-between;
+		}
 	}
 
 }
