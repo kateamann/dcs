@@ -58,6 +58,13 @@ input[type="submit"],
 	width: auto;
 }
 
+button.eventbrite {
+	background-color: $white;
+	color: $brand-blue;
+	padding: 0;
+	text-decoration: underline;
+}
+
 button:focus,
 button:hover,
 input[type="button"]:focus,
@@ -70,6 +77,12 @@ input[type="submit"]:hover,
 .button:hover {
 	background-color: $brand-blue;
 	color: $white;
+}
+
+button.eventbrite:focus,
+button.eventbrite:hover {
+	background-color: $white;
+	color: $black;
 }
 
 .ab-button:hover,

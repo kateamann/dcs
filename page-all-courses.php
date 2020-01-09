@@ -45,8 +45,17 @@ function course_listings() {
 						Full Course Details <i class="fas fa-angle-double-right"></i>
 						</a></strong></p>
 						
+							<script src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"></script>
+
+							<script type="text/javascript">
+							    var exampleCallback = function() {
+							        console.log('Order complete!');
+							    };
+							</script>
+
 							<h3>Dates and prices</h3>
 							<?php get_template_part('course-dates-loop'); ?>
+
 						<?php
 						} ?>
 					</div>
