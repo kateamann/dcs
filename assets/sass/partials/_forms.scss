@@ -79,6 +79,10 @@ input[type="submit"]:hover,
 	color: $white;
 }
 
+.page-template-page-all-courses span.eventlink {
+	display: none;
+}
+
 button.eventbrite:focus,
 button.eventbrite:hover {
 	background-color: $white;
