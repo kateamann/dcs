@@ -46,7 +46,7 @@ function display_full_course_info() {
             };
         </script>
 
-        <h2>Dates and prices</h2>
+        <h2>Dates, prices & booking</h2>
         <?php 
         get_template_part('course-dates-loop'); 
     }

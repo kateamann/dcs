@@ -41,20 +41,13 @@ function course_listings() {
 						<?php echo $description; ?>
 
 						<?php if ( have_rows('course_dates') ) { ?>
-				        <p><strong><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-						Full Course Details <i class="fas fa-angle-double-right"></i>
-						</a></strong></p>
-						
-							<script src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"></script>
-
-							<script type="text/javascript">
-							    var exampleCallback = function() {
-							        console.log('Order complete!');
-							    };
-							</script>
 
 							<h3>Dates and prices</h3>
 							<?php get_template_part('course-dates-loop'); ?>
+
+							<p><strong><a class="button" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							Full details & bookings <i class="fas fa-angle-double-right"></i>
+							</a></strong></p>
 
 						<?php
 						} ?>
