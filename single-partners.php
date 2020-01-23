@@ -20,6 +20,13 @@ function display_full_partner_info() {
     $job_title = get_field('contact_job_title');
     $email = get_field('contact_email');
     $phone = get_field('contact_phone');
+
+    $first_name_2 = get_field('contact_2_first_name');
+    $surname_2 = get_field('contact_2_surname');
+    $job_title_2 = get_field('contact_2_job_title');
+    $email_2 = get_field('contact_2_email');
+    $phone_2 = get_field('contact_2_phone');
+
     $photo = get_field('contact_photo');
     $photo_size = 'square-bio';
     $products_services = get_field('products_and_services');
@@ -31,11 +38,25 @@ function display_full_partner_info() {
         <?php the_post_thumbnail('medium'); ?>
     </div>
     <div class="partner-contact-details">
+        <p><strong>Website:</strong> <a href="<?php echo $website; ?>" target="_blank"><?php echo $website; ?></a><p>
+
+        <?php if( $first_name ) { ?>
+            <p>
+                <strong>Contact:</strong> <?php echo $first_name; ?> <?php echo $surname; ?>, <?php echo $job_title; ?><br/>
+                <strong><i class="fas fa-at"></i></strong> <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a><br/>
+                <strong><i class="fas fa-phone"></i></strong> <?php echo $phone; ?>
+            </p>
+        <?php } ?>
+
+
+        <?php if( $first_name_2 ) { ?>
         <p>
-            <strong>Website:</strong> <a href="<?php echo $website; ?>" target="_blank"><?php echo $website; ?></a><br/>
-            <strong>Contact:</strong> <?php echo $first_name; ?> <?php echo $surname; ?>, <?php echo $job_title; ?><br/>
-        <strong><i class="fas fa-at"></i></strong> <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a><br/>
-        <strong><i class="fas fa-phone"></i></strong> <?php echo $phone; ?></p>
+            <strong>Contact:</strong> <?php echo $first_name_2; ?> <?php echo $surname_2; ?>, <?php echo $job_title_2; ?><br/>
+            <strong><i class="fas fa-at"></i></strong> <a href="mailto:<?php echo $email_2; ?>"><?php echo $email_2; ?></a><br/>
+            <strong><i class="fas fa-phone"></i></strong> <?php echo $phone_2; ?>
+        </p>
+        <?php } ?>
+
     </div>
 
     <?php
@@ -47,7 +68,7 @@ function display_full_partner_info() {
     }
 
     if( $intro ) { ?>
-        <h2>Introduction from <?php echo $first_name; ?></h2>
+        <h2>Introduction from <?php echo $first_name; ?><?php if( $first_name_2 ) { echo ' and ' . $first_name_2; } ?></h2>
 
         <?php if( $photo ) { ?>
             <div class="partner-contact-image">
