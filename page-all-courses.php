@@ -45,7 +45,7 @@ function course_listings() {
 							<h3>Dates and prices</h3>
 							<?php get_template_part('course-dates-loop'); ?>
 
-							<p><strong><a class="button" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<p><strong><a class="button courses" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							Full details & bookings <i class="fas fa-angle-double-right"></i>
 							</a></strong></p>
 

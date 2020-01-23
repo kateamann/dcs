@@ -65,6 +65,10 @@ button.eventbrite {
 	text-decoration: underline;
 }
 
+.button.courses {
+	background-color: $brand-blue;
+}
+
 button:focus,
 button:hover,
 input[type="button"]:focus,
@@ -87,6 +91,11 @@ button.eventbrite:focus,
 button.eventbrite:hover {
 	background-color: $white;
 	color: $black;
+}
+
+.button.courses:focus,
+.button.courses:hover {
+	background-color: $dark-grey;
 }
 
 .ab-button:hover,
