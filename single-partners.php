@@ -38,7 +38,9 @@ function display_full_partner_info() {
         <?php the_post_thumbnail('medium'); ?>
     </div>
     <div class="partner-contact-details">
-        <p><strong>Website:</strong> <a href="<?php echo $website; ?>" target="_blank"><?php echo $website; ?></a><p>
+        <?php if( $website ) { ?>
+            <p><strong>Website:</strong> <a href="<?php echo $website; ?>" target="_blank"><?php echo $website; ?></a><p>
+        <?php } ?>
 
         <?php if( $first_name ) { ?>
             <p>
@@ -59,15 +61,12 @@ function display_full_partner_info() {
 
     </div>
 
-    <?php
-
-    if( $products_services ) { ?>
+    <?php if( $products_services ) { ?>
         <h2>Products and services</h2>
             <?php echo $products_services; ?>
-        <?php 
-    }
+    <?php } ?>
 
-    if( $intro ) { ?>
+    <?php if( $intro ) { ?>
         <h2>Introduction from <?php echo $first_name; ?><?php if( $first_name_2 ) { echo ' and ' . $first_name_2; } ?></h2>
 
         <?php if( $photo ) { ?>
@@ -77,14 +76,14 @@ function display_full_partner_info() {
         <?php
         }
         echo $intro; 
-    }
+    } ?>
 
-    if( $link ): 
+    <?php if( $link ) { 
         $link_url = $link['url'];
         $link_target = $link['target'] ? $link['target'] : '_self';
         ?>
         <p><strong><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><i class="fas fa-angle-double-left"></i> Back to all partners</a></strong></p>
-    <?php endif;
+    <?php }
 
 }
 
