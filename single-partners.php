@@ -37,6 +37,7 @@ function display_full_partner_info() {
     <div class="partner-logo">
         <?php the_post_thumbnail('medium'); ?>
     </div>
+
     <div class="partner-contact-details">
         <?php if( $website ) { ?>
             <p><strong>Website:</strong> <a href="<?php echo $website; ?>" target="_blank"><?php echo $website; ?></a><p>
@@ -62,21 +63,25 @@ function display_full_partner_info() {
     </div>
 
     <?php if( $products_services ) { ?>
-        <h2>Products and services</h2>
+        <div class="products-services">
+            <h2>Products and services</h2>
             <?php echo $products_services; ?>
+        </div>
     <?php } ?>
 
     <?php if( $intro ) { ?>
-        <h2>Introduction from <?php echo $first_name; ?><?php if( $first_name_2 ) { echo ' and ' . $first_name_2; } ?></h2>
+        <div class="contact-intro">
+            <h2>Introduction from <?php echo $first_name; ?><?php if( $first_name_2 ) { echo ' and ' . $first_name_2; } ?></h2>
 
-        <?php if( $photo ) { ?>
-            <div class="partner-contact-image">
-                <?php echo wp_get_attachment_image( $photo, $photo_size ); ?>
-            </div>
-        <?php
-        }
-        echo $intro; 
-    } ?>
+            <?php if( $photo ) { ?>
+                <div class="partner-contact-image">
+                    <?php echo wp_get_attachment_image( $photo, $photo_size ); ?>
+                </div>
+            <?php
+            }
+            echo $intro; ?>
+        </div>
+    <?php } ?>
 
     <?php if( $link ) { 
         $link_url = $link['url'];

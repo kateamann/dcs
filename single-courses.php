@@ -38,13 +38,6 @@ function display_full_course_info() {
     }
 
     if( have_rows('course_dates') ) { ?>
-        <script src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"></script>
-
-        <script type="text/javascript">
-            var exampleCallback = function() {
-                console.log('Order complete!');
-            };
-        </script>
 
         <h2>Dates, prices & booking</h2>
         <?php 

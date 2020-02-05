@@ -15,24 +15,13 @@
 
     <li>
     	
-        <?php echo $city; ?> (<?php echo $date; ?>)<strong>&nbsp;&middot;&nbsp;</strong><strong><?php echo $price; ?></strong><?php if( $link && $eventbrite ): ?>
+        <?php echo $city; ?> (<?php echo $date; ?>)<strong>&nbsp;&middot;&nbsp;</strong><strong><?php echo $price; ?></strong><?php if( $link ): ?>
 	        
 			<span class="eventlink">
-				<!-- Noscript content for added SEO -->
-				<noscript><a href="<?php echo esc_url($link); ?>" rel="noopener noreferrer" target="_blank"></noscript>
-
-				<strong>&nbsp;&middot;&nbsp;</strong><button class="eventbrite" id="eventbrite-widget-modal-trigger-<?php echo $eventbrite; ?>" type="button">Book <i class="fas fa-angle-double-right"></i></button>
-				<noscript></a>Buy Tickets on Eventbrite</noscript>
-
-				<script type="text/javascript">
-				    window.EBWidgets.createWidget({
-				        widgetType: 'checkout',
-				        eventId: '<?php echo $eventbrite; ?>',
-				        modal: true,
-				        modalTriggerElementId: 'eventbrite-widget-modal-trigger-<?php echo $eventbrite; ?>',
-				        onOrderComplete: exampleCallback
-				    });
-				</script>
+				<strong>&nbsp;&middot;&nbsp;</strong>
+				<a href="<?php echo esc_url($link); ?>" rel="noopener noreferrer" target="_blank">
+				<button class="eventbrite">Book <i class="fas fa-angle-double-right"></i></button>
+				</a>
 			</span>
 		
 		<?php endif; ?>
