@@ -83,7 +83,8 @@ input[type="submit"]:hover,
 	color: $white;
 }
 
-.page-template-page-all-courses span.eventlink {
+.page-template-page-all-courses span.eventlink,
+.page-template-page-all-training span.eventlink {
 	display: none;
 }
 
