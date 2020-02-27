@@ -3,7 +3,7 @@ Theme Name: DCS
 Description: Custom child theme for the <a href="http://genesistheme.com">Genesis Framework</a>.
 Author: Kate Amann
 Author URI: https://kateamann.com/
-Version: 1.0.7
+Version: 1.1.2
 License:     GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Template: genesis
@@ -27,3 +27,4 @@ Text Domain: dcs
 @import "partials/content-area";
 @import "partials/gutenberg";
 @import "partials/site-footer";
+@import "partials/learndash";

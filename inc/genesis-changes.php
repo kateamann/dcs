@@ -155,3 +155,15 @@ add_filter( 'get_the_content_more_link', 'read_more_link' );
 function read_more_link() {
 return '<strong><a class="more-link" href="' . get_permalink() . '">Read more <i class="fas fa-angle-double-right"></i></a></strong>';
 }
+
+
+// Remove Post Info, Post Meta from Learndash post types
+add_action ( 'genesis_before_loop', 'dcs_remove_post_info' );
+function dcs_remove_post_info() {
+	if ('sfwd-lessons' || 'sfwd-courses' ||  'sfwd-quiz' || 'sfwd-certificates' == get_post_type()) {//add in your CPT name
+		remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+	}
+}
+
+

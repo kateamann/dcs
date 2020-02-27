@@ -1,0 +1,69 @@
+/* Learndash overrides
+---------------------------------------------------------------------------- */
+
+/* Course grid
+--------------------------------------------- */
+
+.ld-course-list-items .ld_course_grid {
+
+	.thumbnail.course {
+	    border-radius: 0;
+	}
+
+	.entry-title {
+		font-size: 24px;
+	}
+
+	.btn {
+	    padding: 15px 30px;
+	    font-size: 15px;
+	    font-weight: 600;
+	    border-radius: 0;
+	}
+
+	.btn-primary {
+	    color: $white;
+	    background-color: $brand-blue;
+	    border-color: $brand-blue;
+	}
+
+	.btn-primary:hover, 
+	.btn-primary:focus, 
+	.btn-primary:active, 
+	.btn-primary.active, 
+	.open .dropdown-toggle.btn-primary {
+		background-color: $dark-grey;
+	    border-color: $dark-grey;
+	}
+
+}
+
+
+
+
+/* Elements
+--------------------------------------------- */
+
+.entry-content {
+	
+	.learndash-wrapper .ld-button {
+	    border-radius: 0;
+	    font-weight: 600;
+	    font-size: 15px;
+	    padding: 15px 30px;
+	}
+
+
+	.uo-tclr-open-content-button {
+	    font-size: 15px;
+	    font-weight: 600;
+	    color: $white;
+	    background: $brand-blue;
+	    border: 1px solid $brand-blue;
+	    padding: 15px 30px;
+	}
+
+	.uo-tclr-open-content-button:hover {
+	    background: $dark-grey;
+	}
+}
