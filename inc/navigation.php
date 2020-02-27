@@ -59,3 +59,39 @@ function responsive_menu_settings() {
 	return $settings;
 
 }
+
+
+
+/**
+ * Add top bar
+ *
+ */
+add_action( 'genesis_before_header', 'is_top_bar', 9 );
+function is_top_bar() { ?>
+
+	<div class="top-bar">
+		<div class="wrap">
+			<div class="top-left"></div>
+			<div class="top-right"><?php dcs_login_links(); ?></div>
+		</div>
+	</div>
+
+	<?php
+}
+
+/**
+ * Top Bar
+ *
+ */
+
+function dcs_login_links() {
+if (is_user_logged_in()) { ?>
+	
+    <a href="<?php echo get_site_url(); ?>/my-profile/">My profile</a>&nbsp;|&nbsp;<a href="<?php echo wp_logout_url(get_permalink()); ?>">Logout</a>
+	<?php } else { ?>
+    <a href="<?php echo wp_login_url(get_permalink()); ?>">eLearning Login</a>
+	<?php }
+}
+
+
+

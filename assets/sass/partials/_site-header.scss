@@ -1,3 +1,52 @@
+/* Top Bar
+--------------------------------------------- */
+
+.top-bar {
+	background-color: $brand-blue;
+	padding: 5px 20px;
+
+	a {
+		color: $white;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	a:focus,
+	a:hover {
+		color: $light-grey;
+	}
+
+	.wrap {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.top-left {
+		margin: 0 auto;
+		text-align: center;
+
+		@media only screen and (min-width: $small-screen) {
+			float: left;
+			text-align: left;
+		}
+	}
+
+	.top-right {
+		display: none;
+
+		@media only screen and (min-width: $small-screen) {
+			display: block;
+			float: right;
+
+			// .phone,
+			// .email {
+			// 	display: inline-block;
+			// 	margin-left: 15px;
+			// }
+		}
+	}
+}
+
 /* Site Header
 ---------------------------------------------------------------------------- */
 
