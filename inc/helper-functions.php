@@ -114,6 +114,17 @@ function get_post_author_name ($atts){
 }
 
 
+// Replace the default password change email subject
+add_filter('password_change_email', 'dcs_change_password_mail_subject', 10, 3);
+function dcs_change_password_mail_subject( $pass_change_email, $user, $userdata ) {
+    // Call Change Email to HTML function
+    add_filter( 'wp_mail_content_type', 'set_email_html_content_type' );
+    $pass_change_email[ 'subject' ] = 'Your DCS eLearning password was changed';
+
+    return $pass_change_email;
+}
+
+
 /**
  * Move Yoast to the Bottom
  */
