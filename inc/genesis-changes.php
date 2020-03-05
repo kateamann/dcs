@@ -167,3 +167,20 @@ function dcs_remove_post_info() {
 }
 
 
+// Back to eLearning listings link
+add_action( 'genesis_entry_content', 'display_all_elearning_link', 15 );
+function display_all_elearning_link() { 
+
+	if ( is_singular( array( 'sfwd-lessons', 'sfwd-courses', 'sfwd-quiz', 'sfwd-certificates') ) ) { 
+		$link = get_field('all_elearning_link', 'option');
+    
+	    if( $link ) { 
+	        $link_url = $link['url'];
+	        $link_target = $link['target'] ? $link['target'] : '_self';
+	        ?>
+	        <p><strong><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><i class="fas fa-angle-double-left"></i> Back to all eLearning modules</a></strong></p>
+    <?php } 
+	}
+}
+
+
