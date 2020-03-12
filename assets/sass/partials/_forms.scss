@@ -130,16 +130,40 @@ input[type="search"]::-webkit-search-results-button {
 }
 
 
-// .entry-content .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
-// .entry-content .gform_wrapper textarea {
-//     padding: 15px;
-// }
 
-// @media only screen and (min-width: 641px) {
-// 	.entry-content .gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium {
-// 	    width: 100%;
-// 	}
-// }
+// Gravity Forms
+
+.entry-content .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+	padding: 15px;
+}
+
+.entry-content .gform_wrapper .gfield_checkbox li input, 
+.entry-content .gform_wrapper .gfield_checkbox li input[type=checkbox], 
+.entry-content .gform_wrapper .gfield_radio li input[type=radio] {
+	vertical-align: unset;
+}
+
+.entry-content .gform_wrapper.gf_browser_chrome .gfield_checkbox li input, 
+.entry-content .gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], 
+.entry-content .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
+	margin-top: 10px;
+}
+
+.entry-content .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_left select, 
+.entry-content .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_right select, 
+.entry-content .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield input[type=radio], 
+.entry-content .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+	margin-right: 5px;
+}
+
+body .entry-content .gform_wrapper ul li.field_description_below div.ginput_container_checkbox, 
+body .entry-content .gform_wrapper ul li.field_description_below div.ginput_container_radio {
+	margin-top: 5px;
+}
+
+body .entry-content .gform_wrapper ul li.gfield {
+	margin-top: 30px;
+}
 
 /* Mailchimp
 --------------------------------------------- */
