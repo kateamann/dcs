@@ -8,15 +8,16 @@
  * @license 	GPL-2.0+
 **/
 
-
 add_action( 'genesis_before_entry_content', 'featured_post_image', 8 );
+//* Add featured image
 function featured_post_image() {
 	the_post_thumbnail('featured-image');
 }
 
-//* Add author bio
 add_action( 'genesis_entry_content', 'dcs_author_bio', 15 );
-function dcs_author_bio() {
+//* Add author bio
+function dcs_author_bio() {	
+
 	global $post;
 
 	$post_object = get_field('post_author');
@@ -62,6 +63,7 @@ function dcs_author_bio() {
 		</section>
 	    <?php wp_reset_postdata(); ?>
 	<?php endif;
+	
 }
 
 genesis();

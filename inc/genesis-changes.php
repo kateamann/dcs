@@ -168,7 +168,7 @@ function dcs_remove_post_info() {
 
 
 // Back to eLearning listings link
-add_action( 'genesis_entry_content', 'display_all_elearning_link', 15 );
+// add_action( 'genesis_entry_content', 'display_all_elearning_link', 15 );
 function display_all_elearning_link() { 
 
 	if ( is_singular( array( 'sfwd-lessons', 'sfwd-courses', 'sfwd-quiz', 'sfwd-certificates') ) ) { 
