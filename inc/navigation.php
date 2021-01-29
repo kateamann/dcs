@@ -91,7 +91,7 @@ function dcs_login_links() { ?>
     	<li><a href="<?php echo get_site_url(); ?>/my-profile/">My profile</a></li>
     	<li><a href="<?php echo wp_logout_url(get_permalink()); ?>">Logout</a></li>
 	<?php } else { ?>
-    	<li><a href="<?php echo wp_login_url(get_permalink()); ?>">eLearning Login</a></li>
+    	
 	<?php } ?>
 
 	</ul>
