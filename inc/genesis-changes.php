@@ -107,6 +107,21 @@ function dcs_remove_genesis_templates( $page_templates ) {
 add_filter( 'theme_page_templates', 'dcs_remove_genesis_templates' );
 
 
+
+
+/**
+ * Only show a featured image if it was set in a post
+ *
+ */
+
+add_filter( 'genesis_get_image_default_args', 'dcs_show_only_assigned_featured_image' );
+function dcs_show_only_assigned_featured_image( $args ){
+  $args['fallback'] = 'no-attachment'; // By Default it is 'first-attached'
+ 
+  return $args;
+}
+
+
 /**
  * Add featured hero image
  *
