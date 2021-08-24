@@ -144,6 +144,10 @@ video,
 	max-width: 100%;
 }
 
+iframe {
+	border:2px solid $brand-blue;
+}
+
 img {
 	height: auto;
 	vertical-align: top;
